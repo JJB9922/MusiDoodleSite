@@ -28,26 +28,31 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/index.html", "../views/partials/navbar.tmpl"))
+	tmpl := template.Must(template.ParseFiles("../views/index.html", 
+                                            "../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
 
 func screenshots(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/screenshots.html", "../views/partials/navbar.tmpl"))
+	tmpl := template.Must(template.ParseFiles("../views/screenshots.html", 
+                                            "../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
 
 func technical(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/technical.html", "../views/partials/navbar.tmpl"))
+	tmpl := template.Must(template.ParseFiles("../views/technical.html", 
+                                            "../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
 
 func contact(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/contact.html", "../views/partials/navbar.tmpl"))
+	tmpl := template.Must(template.ParseFiles("../views/contact.html", 
+                                            "../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
 
 func download(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/download.html", "../views/partials/navbar.tmpl"))
+	tmpl := template.Must(template.ParseFiles("../views/download.html", 
+                                            "../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
