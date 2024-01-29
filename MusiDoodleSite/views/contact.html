@@ -13,16 +13,40 @@
    </head> 
    <body class="bg-gray-800">
 
-    <div hx-boost="true">
-      {{template "navbar" .}}
-    </div>
+  <style>
+    .form.htmx-request{
+      opacity: .5;
+      transition: opacity 300ms linear;
+    }
 
-      <section>
+    .button:active{
+      transform: translateY(2px);
+    }
+    </style>
+
+    {{if .Success}}
+    
+    <hr>
+      <h1 class="my-8 text-4xl tracking-tight font-extrabold text-center text-purple-200"> Message Sent! </h1>    
+    <hr>
+    
+    {{else}}
+    
+    <div hx-boost="true">
+    
+      {{template "navbar" .}}
+    
+    </div>
+    
+    <section>  
          <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
             <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-center text-purple-400">Contact</h2>
       
             <p class="mb-10 mt-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-200 sm:text-xl">Found a bug? Got a suggestion? Let me know!</p>
-            <form action="#" class="space-y-8 -mt-2" hx-post="/submit-contact" hx-trigger="submit">
+
+          <input name="honeypot" type="text" value="" style="diplay: none; visibility: hidden;"/>
+           
+        <form action="#" class="space-y-8 -mt-12" hx-post="/submit-contact" hx-trigger="submit" hx-swap="outerHTML">
                <div>
                   <label for="email" class="block mb-2 text-sm font-medium text-purple-400">Your Email</label>
                   <input 
@@ -56,14 +80,18 @@
                      required
                   ></textarea>
                </div>
+
+          <div />
                <button 
                   type="submit" 
-                  class="shadow-lg text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
-               >Submit Message</button>
+                  class="button shadow-lg text-l text-white bg-purple-600 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
+                  style="transform: transformY(-10px);"     
+          >Submit Message</button>
             </form>
          </div>
       </section>
       
+      {{end}}
       
    </body>
 </html>
