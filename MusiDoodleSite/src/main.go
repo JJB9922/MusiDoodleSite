@@ -21,6 +21,7 @@ func main() {
 	r.HandleFunc("/", index)
 	r.HandleFunc("/screenshots", screenshots)
 	r.HandleFunc("/technical", technical)
+	r.HandleFunc("/versions", versions)
 	r.HandleFunc("/contact", contact)
 	r.HandleFunc("/download", download)
 	r.HandleFunc("/submit-contact", contactFormSubmitted).Methods("POST")
@@ -46,10 +47,14 @@ func technical(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, nil)
 }
 
+func versions(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.ParseFiles("../views/versions.html",
+		"../views/partials/navbar.tmpl", "../views/partials/version.tmpl"))
+	tmpl.Execute(w, nil)
+}
+
 func download(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("../views/download.html",
 		"../views/partials/navbar.tmpl", "../views/partials/version.tmpl"))
 	tmpl.Execute(w, nil)
 }
-
-
