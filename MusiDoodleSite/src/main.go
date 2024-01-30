@@ -19,7 +19,6 @@ func main() {
 
 	// Define routes
 	r.HandleFunc("/", index)
-	r.HandleFunc("/screenshots", screenshots)
 	r.HandleFunc("/technical", technical)
 	r.HandleFunc("/versions", versions)
 	r.HandleFunc("/contact", contact)
@@ -32,12 +31,6 @@ func main() {
 func index(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles("../views/index.html",
 		"../views/partials/navbar.tmpl", "../views/partials/version.tmpl"))
-	tmpl.Execute(w, nil)
-}
-
-func screenshots(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles("../views/screenshots.html",
-		"../views/partials/navbar.tmpl"))
 	tmpl.Execute(w, nil)
 }
 
