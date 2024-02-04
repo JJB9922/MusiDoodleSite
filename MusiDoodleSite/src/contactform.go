@@ -27,7 +27,7 @@ func contactFormSubmitted(w http.ResponseWriter, r *http.Request) {
     return;
   }
 
-  if r.Method == http.MethodPost && len(r.FormValue("honepot")) == 0 {
+  if r.Method == http.MethodPost && len(r.FormValue("honeypot")) == 0 {
 
     details := ContactDetails{
       Email: r.FormValue("email"),
