@@ -10,7 +10,7 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	fmt.Println("HTTP Server running on 8080!")
+	fmt.Println("HTTP Server running on 10000!")
 
 	http.Handle("/assets/", http.StripPrefix("/assets/",
 		http.FileServer(http.Dir("../assets"))))
@@ -25,7 +25,7 @@ func main() {
 	r.HandleFunc("/download", download)
 	r.HandleFunc("/submit-contact", contactFormSubmitted).Methods("POST")
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":10000", nil)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
